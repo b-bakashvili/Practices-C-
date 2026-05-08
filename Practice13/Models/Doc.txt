@@ -1,0 +1,32 @@
+﻿{3} classes: Client, Account, Payment
+
+1st -> Client:
+Fields: Name[str], LastName[str], PersonalNumber[str], PhoneNumber[str], Id[Guid], CreatedOn[DateTime];
+Functions: RegisterClient(), DeleteClient(), UpdateClientInfo();
+
+2nd -> Account:
+Fields: Id[Guid], Currency[str], Balance[int] AccountNumber[generate.AccNo(Account + Currency)], AccountName[str], ClientId[Guid], CreatedOn[DateTime];
+Functions: CreateAccount(), DeleteAcc(), UpdateAccountInfo();
+
+3rd -> Payment:
+Fields: Id[Guid], FromAccountId[Guid], ToAcccountId[Guid], Amount[int], Currency[str], CreatedOn[DateTime];
+Functions: GetPaymentHistory(), DeletePaymentHistory(), Transfer();
+
++ Services
+
+Client Service:
+
+*List of Clients;
+
+Account Service:
+
+*List of Accounts;
+
+PaymentService:
+
+public Payment[] GetPaymentReport(int quantity, Guid ClientId);
+public static Payment[] GetPaymentReport(AccountId);
+
+Generate:
+
+Public static string AccNo(string Currency);
