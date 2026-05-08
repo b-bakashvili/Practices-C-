@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practice13.Interface
+namespace Practice13.Interface;
+
+internal interface IService<T>
 {
-    internal class IService
-    {
-    }
+    void Add(T item);
+    void Update(T item);
+    void Delete(T item);
+    List<T> GetAll();
+    T GetById(Guid id);
 }
